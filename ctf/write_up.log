@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Arch Linux) (preloaded format=pdflatex 2021.3.5)  15 MAR 2021 23:31
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Arch Linux) (preloaded format=pdflatex 2021.3.5)  18 MAR 2021 22:13
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -376,7 +376,7 @@ File: l3backend-pdftex.def 2020-09-24 L3 backend support: PDF output (pdfTeX)
 \l__kernel_color_stack_int=\count280
 \l__pdf_internal_box=\box52
 )
-No file write_up.aux.
+(./write_up.aux)
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 54.
 LaTeX Font Info:    ... okay on input line 54.
 LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 54.
@@ -393,6 +393,7 @@ LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 54.
 LaTeX Font Info:    ... okay on input line 54.
 LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 54.
 LaTeX Font Info:    ... okay on input line 54.
+
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
@@ -473,10 +474,12 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 LaTeX Info: Redefining \ref on input line 54.
 LaTeX Info: Redefining \pageref on input line 54.
 LaTeX Info: Redefining \nameref on input line 54.
+
+(./write_up.out) (./write_up.out)
 \@outlinefile=\write3
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
-<its.png, id=4, 301.125pt x 301.125pt>
+<its.png, id=32, 301.125pt x 301.125pt>
 File: its.png Graphic file (type png)
 <use its.png>
 Package pdftex.def Info: its.png  used on input line 62.
@@ -513,7 +516,8 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 77.
  [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./its.png>]
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./its.png>] (./write_up.to
+c)
 \tf@toc=\write4
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
 been already used, duplicate ignored
@@ -533,7 +537,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 95--99
 
  []
 
-<like1000script.png, id=18, 565.11125pt x 261.97874pt>
+<like1000script.png, id=53, 565.11125pt x 261.97874pt>
 File: like1000script.png Graphic file (type png)
 <use like1000script.png>
 Package pdftex.def Info: like1000script.png  used on input line 106.
@@ -547,12 +551,12 @@ l.109 K
 [1
 
 ]
-<like1000flag.png, id=26, 824.07875pt x 549.55313pt>
+<like1000flag.png, id=58, 824.07875pt x 549.55313pt>
 File: like1000flag.png Graphic file (type png)
 <use like1000flag.png>
 Package pdftex.def Info: like1000flag.png  used on input line 112.
 (pdftex.def)             Requested size: 318.66948pt x 212.51358pt.
-<wherefileflag.png, id=27, 846.16125pt x 153.57375pt>
+<wherefileflag.png, id=59, 846.16125pt x 153.57375pt>
 File: wherefileflag.png Graphic file (type png)
 <use wherefileflag.png>
 Package pdftex.def Info: wherefileflag.png  used on input line 122.
@@ -564,7 +568,7 @@ Overfull \hbox (31.97162pt too wide) in paragraph at lines 116--124
  []
 
 [2 <./like1000script.png (PNG copy)> <./like1000flag.png>]
-<opentoadminsflag.png, id=35, 963.6pt x 457.71pt>
+<opentoadminsflag.png, id=66, 963.6pt x 457.71pt>
 File: opentoadminsflag.png Graphic file (type png)
 <use opentoadminsflag.png>
 Package pdftex.def Info: opentoadminsflag.png  used on input line 131.
@@ -575,37 +579,62 @@ Overfull \hbox (1.20755pt too wide) in paragraph at lines 127--133
 ll1.picoctf.com:49858 So-lusi:
  []
 
-<flagshopflag.png, id=36, 402.00188pt x 514.42188pt>
+<flagshopflag.png, id=67, 402.00188pt x 514.42188pt>
 File: flagshopflag.png Graphic file (type png)
 <use flagshopflag.png>
 Package pdftex.def Info: flagshopflag.png  used on input line 140.
 (pdftex.def)             Requested size: 455.24411pt x 582.5537pt.
 [3 <./wherefileflag.png (PNG copy)> <./opentoadminsflag.png (PNG copy)>]
-[4] [5 <./flagshopflag.png (PNG copy)>] (./write_up.aux)
+[4]
+<jwtscratch1.png, id=78, 963.6pt x 542.025pt>
+File: jwtscratch1.png Graphic file (type png)
+<use jwtscratch1.png>
+Package pdftex.def Info: jwtscratch1.png  used on input line 148.
+(pdftex.def)             Requested size: 455.24411pt x 256.07507pt.
+ [5 <./flagshopflag.png (PNG copy)>]
+<jwtscratch2.png, id=85, 963.6pt x 542.025pt>
+File: jwtscratch2.png Graphic file (type png)
+<use jwtscratch2.png>
+Package pdftex.def Info: jwtscratch2.png  used on input line 154.
+(pdftex.def)             Requested size: 455.24411pt x 256.07507pt.
+ [6 <./jwtscratch1.png (PNG copy)>]
+<jwtscratch3.png, id=91, 630.355pt x 111.91812pt>
+File: jwtscratch3.png Graphic file (type png)
+<use jwtscratch3.png>
+Package pdftex.def Info: jwtscratch3.png  used on input line 161.
+(pdftex.def)             Requested size: 455.24411pt x 80.8286pt.
+<jwtscratch4.png, id=92, 944.52875pt x 425.59pt>
+File: jwtscratch4.png Graphic file (type png)
+<use jwtscratch4.png>
+Package pdftex.def Info: jwtscratch4.png  used on input line 167.
+(pdftex.def)             Requested size: 455.24411pt x 205.13158pt.
 
-Package rerunfilecheck Warning: File `write_up.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `write_up.out':
-(rerunfilecheck)             Before: <no file>
-(rerunfilecheck)             After:  34B26978F31ED572E43F712EEBCEC795;364.
+[7 <./jwtscratch2.png (PNG copy)> <./jwtscratch3.png (PNG copy)>]
+<jwtscratchflag.png, id=99, 777.40437pt x 525.965pt>
+File: jwtscratchflag.png Graphic file (type png)
+<use jwtscratchflag.png>
+Package pdftex.def Info: jwtscratchflag.png  used on input line 173.
+(pdftex.def)             Requested size: 455.24411pt x 308.0133pt.
+ [8 <./jwtscratch4.png (PNG copy)> <./jwtscratchflag.png (PNG copy)>] (./write_
+up.aux)
+Package rerunfilecheck Info: File `write_up.out' has not changed.
+(rerunfilecheck)             Checksum: 9ABDC463DF31E8A192470E5FD85F6070;428.
  ) 
 Here is how much of TeX's memory you used:
- 8930 strings out of 479383
- 135059 string characters out of 5875831
- 448751 words of memory out of 5000000
- 25866 multiletter control sequences out of 15000+600000
+ 8985 strings out of 479383
+ 135914 string characters out of 5875831
+ 449075 words of memory out of 5000000
+ 25899 multiletter control sequences out of 15000+600000
  419749 words of font info for 61 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 66i,12n,72p,243b,354s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 66i,12n,72p,322b,354s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texmf-dist/fon
 ts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/urw/t
 imes/utmb8a.pfb></usr/share/texmf-dist/fonts/type1/urw/times/utmr8a.pfb>
-Output written on write_up.pdf (7 pages, 418594 bytes).
+Output written on write_up.pdf (10 pages, 911058 bytes).
 PDF statistics:
- 73 PDF objects out of 1000 (max. 8388607)
- 53 compressed objects within 1 object stream
- 18 named destinations out of 1000 (max. 500000)
- 31 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 127 PDF objects out of 1000 (max. 8388607)
+ 99 compressed objects within 1 object stream
+ 27 named destinations out of 1000 (max. 500000)
+ 112 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -140,5 +140,37 @@ Solusi: sebenarnya ini merupakan soal yang cukup mudah, karena kita diberi sourc
 \includegraphics[width=1\textwidth]{flagshopflag.png}\\
 \caption{Flagnyaa}
 \end{figure}
-
+\section{\textbf{JaWT Scratchpad(400 points)}}
+Soal: Check the admin scratchpad! https:\/\/2019shell1.picoctf.com\/problem\/12283\/ or\\ http:\/\/2019shell1.picoctf.com:12283\\
+Solusi: dari judulnya sudah dapat diterka bahwa problem ini akan berkaitan dengan JWT atau JSON web token.
+\begin{figure}[H]
+ \centering
+\includegraphics[width=1\textwidth]{jwtscratch1.png}\\
+\caption{Tampilan dari link yang diberikan}
+\end{figure}
+Jika kita login dengan nama admin, maka tidak bisa dilakukan. Maka kita coba dengan mengisikan nama sembarang. Lalu kita bisa mengakses jwt.io untuk info lebih lengkap terkait JWT ini.
+\begin{figure}[H]
+ \centering
+\includegraphics[width=1\textwidth]{jwtscratch2.png}\\
+\caption{jwt.io}
+\end{figure}
+Dapat dilihat bahwa digunakan algoritma HS256. Lalu jika kita memperhatikan laman dari JaWT tadi ada hyperlink ke tools bernama John the Ripper, password cracker. picoCTF memberikan clue pada kita bahwa kita dapat menggunakan john the ripper untuk mengcrack problem ini.
+Saya sudah memiliki wordlist bernama rockyou yang berukuran 130 mb.
+\begin{figure}[H]
+ \centering
+\includegraphics[width=1\textwidth]{jwtscratch3.png}\\
+\caption{penggunaan john}
+\end{figure}
+Diperoleh secret keynya adalah ilovepico, maka kita tinggal mengubahnya dari jwt.io saja.
+\begin{figure}[H]
+ \centering
+\includegraphics[width=1\textwidth]{jwtscratch4.png}\\
+\caption{secret key diperoleh}
+\end{figure}
+Lalu kita tinggal mengatur cookie dari webpagenya tadi saja, maka akan terlihat flagnya.
+\begin{figure}[H]
+ \centering
+\includegraphics[width=1\textwidth]{jwtscratchflag.png}\\
+\caption{Flagnyaa}
+\end{figure}
 \end{document}
