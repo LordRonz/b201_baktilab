@@ -1,7 +1,7 @@
 const http = require('http');
 const { MongoClient } = require('mongodb');
 const MongoUrl = 'mongodb://localhost/acme';
-const { getAllData, getData } = require('./controllers/dataController');
+const { getAllData, getData, createData } = require('./controllers/dataController');
 const { client } = require('./database/database')
 
 client.connect();
@@ -15,7 +15,7 @@ const server = http.createServer((req, res)=>{
         getData(req, res, id);
     }
     else if(req.url === '/api/data' && req.method === 'POST') {
-        // createData(req, res);
+        createData(req, res);
     }
     else if(req.url.match(/\/api\/data\/([0-9]+)/) && req.method === 'PUT') {
         // const id = req.url.split('/')[3];

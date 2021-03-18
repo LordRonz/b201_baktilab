@@ -34,7 +34,20 @@ async function getData(req, res, id) {
     }
 }
 
+async function createData(req, res) {
+    try {
+        const body = await getPostData(req);
+        const data = JSON.parse(body);
+        const newData = await Data.create(data);
+        res.writeHead(201, { 'Content-Type': 'application/json' });
+            return res.end(JSON.stringify(newData));
+    } catch(error) {
+        console.log(error);
+    }
+}
+
 module.exports = {
     getAllData,
     getData,
+    createData,
 };

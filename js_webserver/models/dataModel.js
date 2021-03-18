@@ -34,17 +34,24 @@ function findById(id) {
     });
 }
 
-// function createData() {
-//     MongoClient.connect(MongoUrl, { useUnifiedTopology: true }, async (err, client)=>{
-//         if(err) throw err;
-//         const db = client.db('acme');
-//         const col = db.collection('netflix_titles');
-//         const data = await col.findOne({ _id: ObjectId(id) });
-//         console.log(JSON.stringify(data));
-//     });
-// }
+function create(data) {
+    return new Promise(async (resolve, reject)=>{
+        
+        const db = client.db('acme');
+        const col = db.collection('netflix_titles');
+        let newData = {};
+        if(Array.isArray(data)) {
+            newData = col.insertMany(data);
+        }
+        else {
+            newData = col.insertOne(data);
+        }
+        resolve(newData);
+    });
+}
 
 module.exports = {
     findAll,
     findById,
+    create,
 };
