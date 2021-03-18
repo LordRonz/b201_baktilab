@@ -1,0 +1,6 @@
+\contentsline {section}{\numberline {1}\textbf {plumbing(200 points)}}{1}{section.1}%
+\contentsline {section}{\numberline {2}\textbf {picobrowser(200 points)}}{1}{section.2}%
+\contentsline {section}{\numberline {3}\textbf {like1000(250 points)}}{1}{section.3}%
+\contentsline {section}{\numberline {4}\textbf {where-is-the-file(200 points)}}{2}{section.4}%
+\contentsline {section}{\numberline {5}\textbf {open-to-admins(200 points)}}{3}{section.5}%
+\contentsline {section}{\numberline {6}\textbf {flag\_shop(300 points)}}{4}{section.6}%
