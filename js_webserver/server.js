@@ -2,7 +2,9 @@ const http = require('http');
 const { MongoClient } = require('mongodb');
 const MongoUrl = 'mongodb://localhost/acme';
 const { getAllData, getData, createData } = require('./controllers/dataController');
-const { client } = require('./database/database')
+const { createUser } = require('./controllers/userController');
+const { client } = require('./database/database');
+const jwt = require('jsonwebtoken');
 
 client.connect();
 
@@ -24,6 +26,9 @@ const server = http.createServer((req, res)=>{
     else if(req.url.match(/\/api\/data\/([0-9]+)/) && req.method === 'DELETE') {
         // const id = req.url.split('/')[3];
         // deleteData(req, res, id);
+    }
+    else if(req.url === '/user' && req.method === 'POST') {
+        createUser(req, res);
     }
     else {
         res.writeHead(404, { 'Content-Type': 'application/json' });
