@@ -5,3 +5,5 @@
 \contentsline {section}{\numberline {5}\textbf {open-to-admins(200 points)}}{3}{section.5}%
 \contentsline {section}{\numberline {6}\textbf {flag\_shop(300 points)}}{4}{section.6}%
 \contentsline {section}{\numberline {7}\textbf {JaWT Scratchpad(400 points)}}{6}{section.7}%
+\contentsline {section}{\numberline {8}\textbf {Irish-Name-Repo 1(300 points)}}{9}{section.8}%
+\contentsline {section}{\numberline {9}\textbf {Irish-Name-Repo 2(350 points)}}{9}{section.9}%
