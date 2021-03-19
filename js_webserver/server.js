@@ -1,12 +1,15 @@
+require('dotenv').config();
 const http = require('http');
 const { MongoClient } = require('mongodb');
 const MongoUrl = 'mongodb://localhost/acme';
 const { getAllData, getData, createData } = require('./controllers/dataController');
-const { createUser } = require('./controllers/userController');
+const { createUser, loginUser } = require('./controllers/userController');
 const { client } = require('./database/database');
 const jwt = require('jsonwebtoken');
 
 client.connect();
+
+const users = [];
 
 const server = http.createServer((req, res)=>{
     if(req.url === '/api/data' && req.method === 'GET') {
@@ -29,6 +32,9 @@ const server = http.createServer((req, res)=>{
     }
     else if(req.url === '/user' && req.method === 'POST') {
         createUser(req, res);
+    }
+    else if(req.url === '/user/login' && req.method === 'POST') {
+        loginUser(req, res);
     }
     else {
         res.writeHead(404, { 'Content-Type': 'application/json' });
