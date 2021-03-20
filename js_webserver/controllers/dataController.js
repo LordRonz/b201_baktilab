@@ -78,9 +78,31 @@ async function updateData(req, res, id) {
     }
 }
 
+async function deleteData(req, res, id) {
+    try {
+        const query = { _id: ObjectId(id) };
+        const result = await Data.del(query);
+        if(result.deletedCount === 1) {
+            res.statusCode = 200;
+            res.setHeader('Content-Type', 'application/json');
+            res.write(JSON.stringify(result));
+            res.end();
+        }
+        else {
+            res.statusCode = 404;
+            res.setHeader('Content-Type', 'application/json');
+            res.write(JSON.stringify({ message: 'Data Not Found' }));
+            res.end();
+        }
+    } catch(error) {
+        console.log(error);
+    }
+}
+
 module.exports = {
     getAllData,
     getData,
     createData,
     updateData,
+    deleteData,
 };

@@ -59,9 +59,19 @@ function update(filter, data, option=null) {
     });
 }
 
+function del(query) {
+    return new Promise(async (resolve, reject)=>{
+        const db = client.db('acme');
+        const col = db.collection('netflix_titles');
+        const result = await col.deleteOne(query);
+        resolve(result);
+    });
+}
+
 module.exports = {
     findAll,
     findById,
     create,
     update,
+    del,
 };
