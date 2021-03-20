@@ -50,8 +50,18 @@ function create(data) {
     });
 }
 
+function update(filter, data, option=null) {
+    return new Promise(async (resolve, reject)=>{
+        const db = client.db('acme');
+        const col = db.collection('netflix_titles');
+        const updatedData = await col.updateOne(filter, data, option ? option : { upsert: false });
+        resolve(updatedData);
+    });
+}
+
 module.exports = {
     findAll,
     findById,
     create,
+    update,
 };

@@ -2,14 +2,12 @@ require('dotenv').config();
 const http = require('http');
 const { MongoClient } = require('mongodb');
 const MongoUrl = 'mongodb://localhost/acme';
-const { getAllData, getData, createData } = require('./controllers/dataController');
+const { getAllData, getData, createData, updateData } = require('./controllers/dataController');
 const { createUser, loginUser } = require('./controllers/userController');
 const { client } = require('./database/database');
 const jwt = require('jsonwebtoken');
 
 client.connect();
-
-const users = [];
 
 const server = http.createServer((req, res)=>{
     if(req.url === '/api/data' && req.method === 'GET') {
@@ -23,8 +21,8 @@ const server = http.createServer((req, res)=>{
         createData(req, res);
     }
     else if(req.url.match(/\/api\/data\/([0-9]+)/) && req.method === 'PUT') {
-        // const id = req.url.split('/')[3];
-        // updateData(req, res, id);
+        const id = req.url.split('/')[3];
+        updateData(req, res, id);
     }
     else if(req.url.match(/\/api\/data\/([0-9]+)/) && req.method === 'DELETE') {
         // const id = req.url.split('/')[3];
