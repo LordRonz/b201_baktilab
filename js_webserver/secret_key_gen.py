@@ -1,5 +1,6 @@
 import secrets
 import string
 
-password = ''.join((secrets.choice(string.ascii_letters + string.digits + string.punctuation) for i in range(128)))
+s = string.ascii_letters * 2 + string.digits + string.punctuation
+password = ''.join((secrets.choice(s) for i in range(128)))
 print(password)
