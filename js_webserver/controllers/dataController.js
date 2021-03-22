@@ -13,7 +13,7 @@ async function getAllData(req, res) {
     } catch(error) {
         console.log(error);
         res.writeHead(500, { 'Content-Type': 'application/json' });
-        return res.end({ message: "Internal Server Error" });
+        return res.end(JSON.stringify({ message: "Internal Server Error" }));
     }
 }
 
@@ -35,7 +35,7 @@ async function getData(req, res, id) {
     } catch(error) {
         console.log(error);
         res.writeHead(500, { 'Content-Type': 'application/json' });
-        return res.end({ message: "Internal Server Error" });
+        return res.end(JSON.stringify({ message: "Internal Server Error" }));
     }
 }
 
@@ -49,7 +49,7 @@ async function createData(req, res) {
     } catch(error) {
         console.log(error);
         res.writeHead(500, { 'Content-Type': 'application/json' });
-        return res.end({ message: "Internal Server Error" });
+        return res.end(JSON.stringify({ message: "Internal Server Error" }));
     }
 }
 
@@ -79,12 +79,12 @@ async function updateData(req, res, id) {
         }
         else {
             res.writeHead(404, { 'Content-Type': 'application/json' });
-            return res.end({ message: "Data Not Found" });
+            return res.end(JSON.stringify({ message: "Data Not Found" }));
         }
     } catch(error) {
         console.log(error);
         res.writeHead(500, { 'Content-Type': 'application/json' });
-        return res.end({ message: "Internal Server Error" });
+        return res.end(JSON.stringify({ message: "Internal Server Error" }));
     }
 }
 
@@ -106,6 +106,8 @@ async function deleteData(req, res, id) {
         }
     } catch(error) {
         console.log(error);
+        res.writeHead(500, { 'Content-Type': 'application/json' });
+        return res.end(JSON.stringify({ message: "Internal Server Error" }));
     }
 }
 

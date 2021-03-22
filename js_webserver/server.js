@@ -28,10 +28,10 @@ const server = http.createServer((req, res)=>{
         const id = req.url.split('/')[3];
         deleteData(req, res, id);
     }
-    else if(req.url === '/user' && req.method === 'POST') {
+    else if(req.url === '/api/user/register' && req.method === 'POST') {
         createUser(req, res);
     }
-    else if(req.url === '/user/login' && req.method === 'POST') {
+    else if(req.url === '/api/user/login' && req.method === 'POST') {
         loginUser(req, res);
     }
     else {
