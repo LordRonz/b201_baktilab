@@ -1,11 +1,13 @@
 const Data = require('../models/dataModel');
 const { ObjectId } = require('mongodb');
 const { getPostData } = require('../utils');
+const { verifyToken } = require('./verifyToken');
 
 async function getAllData(req, res) {
+    await verifyToken(req, res);
+    if(!req.user) return;
     try {
         const data = await Data.findAll();
-
         res.statusCode = 200;
         res.setHeader('Content-Type', 'application/json');
         res.write(JSON.stringify(data));
@@ -18,6 +20,8 @@ async function getAllData(req, res) {
 }
 
 async function getData(req, res, id) {
+    await verifyToken(req, res);
+    if(!req.user) return;
     try {
         const data = await Data.findById(id);
         if(!data) {
@@ -40,6 +44,8 @@ async function getData(req, res, id) {
 }
 
 async function createData(req, res) {
+    await verifyToken(req, res);
+    if(!req.user) return;
     try {
         const body = await getPostData(req);
         const data = JSON.parse(body);
@@ -54,6 +60,8 @@ async function createData(req, res) {
 }
 
 async function updateData(req, res, id) {
+    await verifyToken(req, res);
+    if(!req.user) return;
     try {
         const body = await getPostData(req);
         const filter = { _id: ObjectId(id) };
@@ -89,6 +97,8 @@ async function updateData(req, res, id) {
 }
 
 async function deleteData(req, res, id) {
+    await verifyToken(req, res);
+    if(!req.user) return;
     try {
         const query = { _id: ObjectId(id) };
         const result = await Data.del(query);

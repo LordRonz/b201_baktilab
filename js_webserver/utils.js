@@ -17,6 +17,19 @@ function getPostData(req) {
     });
 }
 
+function getHeader(req, headerName) {
+    return new Promise((resolve, reject) => {
+        try {
+            const header = req.headers[headerName];
+            resolve(header);
+        }
+        catch(err) {
+            reject(err);
+        }
+    });
+}
+
 module.exports = {
     getPostData,
+    getHeader
 };

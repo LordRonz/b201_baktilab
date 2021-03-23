@@ -1,6 +1,8 @@
 const Users = require('../models/userModel');
 const { getPostData } = require('../utils');
 const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
+require('dotenv').config();
 
 async function createUser(req, res) {
     try {
@@ -50,14 +52,22 @@ async function loginUser(req, res) {
             res.end(JSON.stringify({ message: 'User Not Found' }));
             return;
         }
-        if(await bcrypt.compare(parsed.password, user.password)) {
-            res.writeHead(200, { 'Content-Type': 'application/json' });
-            res.end(JSON.stringify({ message: 'Success' }));
-        }
-        else {
+        const validPass = await bcrypt.compare(parsed.password, user.password)
+        if(!validPass) {
             res.writeHead(401, { 'Content-Type': 'application/json' });
-            res.end(JSON.stringify({ message: 'Not Allowed' }));
+            return res.end(JSON.stringify({ message: 'Not Allowed' }));
         }
+
+        // const token = jwt.sign({ _id: user._id }, process.env.ACCESS_TOKEN_SECRET, { algorithm: 'HS512' });
+        const token = jwt.sign({ _id: user._id }, process.env.ACCESS_TOKEN_SECRET);
+        res.statusCode = 200;
+        res.setHeader('Content-Type', 'application/json');
+        res.setHeader('auth-token', token);
+        res.write(JSON.stringify({ message: "Success", token: token }));
+        return res.end();
+
+        // res.writeHead(200, { 'Content-Type': 'application/json' });
+        // res.end(JSON.stringify({ message: 'Success' }));
     } catch(error) {
         console.log(error);
         res.writeHead(500, { 'Content-Type': 'application/json' });
