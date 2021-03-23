@@ -11,7 +11,7 @@ async function verifyToken(req, res) {
             return res.end(JSON.stringify({ message: "Access Denied" }));
         }
         try {
-            const verified = jwt.verify(authToken, process.env.ACCESS_TOKEN_SECRET);
+            const verified = jwt.verify(authToken, process.env.ACCESS_TOKEN_SECRET, { algorithms: ['HS512'] });
             req.user = verified;
         }
         catch(err) {

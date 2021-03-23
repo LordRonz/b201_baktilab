@@ -58,8 +58,8 @@ async function loginUser(req, res) {
             return res.end(JSON.stringify({ message: 'Not Allowed' }));
         }
 
-        // const token = jwt.sign({ _id: user._id }, process.env.ACCESS_TOKEN_SECRET, { algorithm: 'HS512' });
-        const token = jwt.sign({ _id: user._id }, process.env.ACCESS_TOKEN_SECRET);
+        const token = jwt.sign({ _id: user._id }, process.env.ACCESS_TOKEN_SECRET, { algorithm: 'HS512' });
+        // const token = jwt.sign({ _id: user._id }, process.env.ACCESS_TOKEN_SECRET);
         res.statusCode = 200;
         res.setHeader('Content-Type', 'application/json');
         res.setHeader('auth-token', token);
