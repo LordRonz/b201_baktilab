@@ -29,11 +29,12 @@ async function createUser(req, res) {
         user = { ...user, password: hashedPass };
         const newUser = await Users.create(user);
         res.writeHead(201, { 'Content-Type': 'application/json' });
-        return res.end(JSON.stringify({ 
-            id: newUser.ops[0]._id,
-            username: newUser.ops[0].username,
-            message: "Account successfully created",
-        }));
+        // return res.end(JSON.stringify({ 
+        //     id: newUser.ops[0]._id,
+        //     username: newUser.ops[0].username,
+        //     message: "Account successfully created",
+        // }));
+        return res.end(JSON.stringify(newUser));
     } catch(error) {
         console.log(error);
         res.writeHead(500, { 'Content-Type': 'application/json' });

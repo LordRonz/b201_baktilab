@@ -6,6 +6,7 @@ const { getAllData, getData, createData, updateData, deleteData } = require('./c
 const { createUser, loginUser } = require('./controllers/userController');
 const { client } = require('./database/database');
 const jwt = require('jsonwebtoken');
+const mongoose = require('./database/mongooseutil')
 
 client.connect();
 
