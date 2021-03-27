@@ -8,7 +8,7 @@ const { client } = require('./database/database');
 const jwt = require('jsonwebtoken');
 const mongoose = require('./database/mongooseutil')
 
-client.connect();
+// client.connect();
 
 const server = http.createServer((req, res)=>{
     if(req.url === '/api/data' && req.method === 'GET') {
