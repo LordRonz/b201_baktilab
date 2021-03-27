@@ -38,8 +38,8 @@ async function getData(req, res, id) {
         }
     } catch(error) {
         console.log(error);
-        res.writeHead(500, { 'Content-Type': 'application/json' });
-        return res.end(JSON.stringify({ message: "Internal Server Error" }));
+        res.writeHead(404, { 'Content-Type': 'application/json' });
+        return res.end(JSON.stringify({ message: "Data Not Found" }));
     }
 }
 

@@ -11,6 +11,7 @@ const mongoose = require('./database/mongooseutil')
 // client.connect();
 
 const server = http.createServer((req, res)=>{
+    console.log(`${req.method} ${req.httpVersion} ${req.url}`);
     if(req.url === '/api/data' && req.method === 'GET') {
         getAllData(req, res);
     }
@@ -43,4 +44,21 @@ const server = http.createServer((req, res)=>{
 
 const PORT = process.env.PORT || 5000;
 
-server.listen(PORT, () => console.log(`server running on port ${PORT}`))
+server.listen(PORT, (err) => {
+    if(err) {
+        console.log(err);
+    }
+    console.log(`server running on port ${PORT}`);
+    console.log(`PID: ${process.pid}`);
+});
+
+function handleExit(signal) {
+    console.log(`Received ${signal}. Close my server properly.`);
+    server.close(function () {
+        process.exit(0);
+    });
+}
+
+process.on('SIGINT', handleExit);
+process.on('SIGQUIT', handleExit);
+process.on('SIGTERM', handleExit);

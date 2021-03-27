@@ -1,13 +1,13 @@
-const { MongoClient, ObjectId } = require('mongodb');
-const MongoUrl = 'mongodb://localhost/acme';
+const { ObjectId } = require('mongodb');
 const { client } = require('../database/database');
+const Data = require('./dataSchema');
 
-function findAll() {
-    return new Promise(async (resolve, reject)=>{
-        const db = client.db('acme');
-        const col = db.collection('netflix_titles');
-
-        const data = await col.find().toArray();
+async function findAll() {
+        // const db = client.db('acme');
+        // const col = db.collection('netflix_titles');
+    try {
+        const res = await Data.find();
+        return res;
         // MongoClient.connect(MongoUrl, { useUnifiedTopology: true }, async (err, client)=>{
         //     if(err) throw err;
         //     let db = client.db('acme');
@@ -19,35 +19,51 @@ function findAll() {
         //         }
         //     });
         // });
-        resolve(data);
-    });
+        
+    }
+    catch(err) {
+        throw err;
+    }
 }
 
-function findById(id) {
-    return new Promise(async (resolve, reject)=>{
-        
-        const db = client.db('acme');
-        const col = db.collection('netflix_titles');
-
-        const data = await col.findOne({ _id: ObjectId(id) });
-        resolve(data);
-    });
+async function findById(id) {
+    try {
+        const res = await Data.findOne({ _id: ObjectId(id) });
+        return res;
+    } catch(err) {
+        throw err;
+    }
 }
 
-function create(data) {
-    return new Promise(async (resolve, reject)=>{
+async function create(data) {
+    // return new Promise(async (resolve, reject)=>{
         
-        const db = client.db('acme');
-        const col = db.collection('netflix_titles');
+    //     const db = client.db('acme');
+    //     const col = db.collection('netflix_titles');
+    //     let newData = {};
+    //     if(Array.isArray(data)) {
+    //         newData = col.insertMany(data);
+    //     }
+    //     else {
+    //         newData = col.insertOne(data);
+    //     }
+    //     resolve(newData);
+    // });
+    try {
+        // const newData = new Data(data);
+        // const savedData = await newData.save();
+        // return savedData;
         let newData = {};
         if(Array.isArray(data)) {
-            newData = col.insertMany(data);
+            newData = await Data.insertMany(data);
+            return newData;
         }
-        else {
-            newData = col.insertOne(data);
-        }
-        resolve(newData);
-    });
+        newData = new Data(data);
+        const savedData = await newData.save();
+        return savedData;
+    } catch(err) {
+        throw err;
+    }
 }
 
 function update(filter, data, option=null) {
