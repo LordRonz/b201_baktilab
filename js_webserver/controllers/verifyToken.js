@@ -2,6 +2,7 @@ const { getHeader } = require('../utils');
 const jwt = require('jsonwebtoken');
 const User = require('../models/userSchema');
 const { ObjectId } = require('mongodb');
+const { headers } = require('../headers');
 require('dotenv').config();
 
 async function verifyToken(req, res) {
@@ -9,7 +10,7 @@ async function verifyToken(req, res) {
         const authToken = await getHeader(req, 'auth-token');
 
         if(!authToken) {
-            res.writeHead(401, { 'Content-Type': 'application/json' });
+            res.writeHead(401, { ...headers, 'Content-Type': 'application/json' });
             return res.end(JSON.stringify({ message: "Access Denied" }));
         }
         try {
@@ -21,16 +22,16 @@ async function verifyToken(req, res) {
         }
         catch(err) {
             if(err.name === 'TokenExpiredError') {
-                res.writeHead(401, { 'Content-Type': 'application/json' });
+                res.writeHead(401, { ...headers, 'Content-Type': 'application/json' });
                 return res.end(JSON.stringify(err));
             }
-            res.writeHead(400, { 'Content-Type': 'application/json' });
+            res.writeHead(400, { ...headers, 'Content-Type': 'application/json' });
             return res.end(JSON.stringify({ message: "Invalid Token" }));
         }
     }
     catch(err) {
         console.log(err);
-        res.writeHead(500, { 'Content-Type': 'application/json' });
+        res.writeHead(500, { ...headers, 'Content-Type': 'application/json' });
         return res.end(JSON.stringify({ message: "Internal Server Error" }));
     }
 }

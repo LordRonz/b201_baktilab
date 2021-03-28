@@ -3,8 +3,6 @@ const { client } = require('../database/database');
 const Data = require('./dataSchema');
 
 async function findAll() {
-        // const db = client.db('acme');
-        // const col = db.collection('netflix_titles');
     try {
         const res = await Data.find().limit();
         return res;
