@@ -1,5 +1,7 @@
 const { getHeader } = require('../utils');
 const jwt = require('jsonwebtoken');
+const User = require('../models/userSchema');
+const { ObjectId } = require('mongodb');
 require('dotenv').config();
 
 async function verifyToken(req, res) {
@@ -12,9 +14,16 @@ async function verifyToken(req, res) {
         }
         try {
             const verified = jwt.verify(authToken, process.env.ACCESS_TOKEN_SECRET, { algorithms: ['HS512'] });
+            if(!await User.findOne({ _id: ObjectId(verified._id) })) {
+                throw new Error("Invalid User");
+            }
             req.user = verified;
         }
         catch(err) {
+            if(err.name === 'TokenExpiredError') {
+                res.writeHead(401, { 'Content-Type': 'application/json' });
+                return res.end(JSON.stringify(err));
+            }
             res.writeHead(400, { 'Content-Type': 'application/json' });
             return res.end(JSON.stringify({ message: "Invalid Token" }));
         }

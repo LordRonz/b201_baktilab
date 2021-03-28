@@ -65,30 +65,16 @@ async function updateData(req, res, id) {
     try {
         const body = await getPostData(req);
         const filter = { _id: ObjectId(id) };
-        const updateDoc = {
-            $set: JSON.parse(body),
-        };
+        const updateDoc = JSON.parse(body);
         const updData = await Data.update(filter, updateDoc);
-    
-        if(updData.modifiedCount === 1) {
-            // const dataData = {
-            //     title: title || product.title,
-            //     description: description || product.description,
-            //     price: price || product.price,
-            // };
-            res.writeHead(200, { 'Content-Type': 'application/json' });
-            return res.end(JSON.stringify(updData));
-        }
-        else if(updData.matchedCount === 1){
-            res.statusCode = 200;
-            res.setHeader('Content-Type', 'application/json');
-            res.write(JSON.stringify({ message: 'Data Found But Not Modified' }));
-            return res.end();
-        }
-        else {
+        
+        if(!updData) {
             res.writeHead(404, { 'Content-Type': 'application/json' });
-            return res.end(JSON.stringify({ message: "Data Not Found" }));
+            return res.end(JSON.stringify({ message: "Data not Found" }));
         }
+
+        res.writeHead(200, { 'Content-Type': 'application/json' });
+        return res.end(JSON.stringify(updData));
     } catch(error) {
         console.log(error);
         res.writeHead(500, { 'Content-Type': 'application/json' });
@@ -105,7 +91,7 @@ async function deleteData(req, res, id) {
         if(result.deletedCount === 1) {
             res.statusCode = 200;
             res.setHeader('Content-Type', 'application/json');
-            res.write(JSON.stringify(result));
+            res.write(JSON.stringify({ ...result, message: 'Successful' }));
             res.end();
         }
         else {

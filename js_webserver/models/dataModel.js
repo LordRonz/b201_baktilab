@@ -6,7 +6,7 @@ async function findAll() {
         // const db = client.db('acme');
         // const col = db.collection('netflix_titles');
     try {
-        const res = await Data.find();
+        const res = await Data.find().limit();
         return res;
         // MongoClient.connect(MongoUrl, { useUnifiedTopology: true }, async (err, client)=>{
         //     if(err) throw err;
@@ -66,22 +66,30 @@ async function create(data) {
     }
 }
 
-function update(filter, data, option=null) {
-    return new Promise(async (resolve, reject)=>{
-        const db = client.db('acme');
-        const col = db.collection('netflix_titles');
-        const updatedData = await col.updateOne(filter, data, option ? option : { upsert: false });
-        resolve(updatedData);
-    });
+async function update(filter, data, option=null) {
+    // return new Promise(async (resolve, reject)=>{
+    //     const db = client.db('acme');
+    //     const col = db.collection('netflix_titles');
+    //     const updatedData = await col.updateOne(filter, data, option ? option : { upsert: false });
+    //     resolve(updatedData);
+    // });
+    try {
+        const updatedData = await Data.findOneAndUpdate(filter, data, {
+            new: true,
+        });
+        return updatedData;
+    } catch(err) {
+        throw err;
+    }
 }
 
-function del(query) {
-    return new Promise(async (resolve, reject)=>{
-        const db = client.db('acme');
-        const col = db.collection('netflix_titles');
-        const result = await col.deleteOne(query);
-        resolve(result);
-    });
+async function del(filter) {
+    try {
+        const res = await Data.deleteOne(filter);
+        return res;
+    } catch(err) {
+        throw err;
+    }
 }
 
 module.exports = {

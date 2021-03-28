@@ -4,15 +4,19 @@ const mongoose = require('mongoose');
 //     Age: {
 //         type: Number,
 //         required: false,
+//         min: 1,
+//         max: 255,
 //     },
 //     Age1stCode: {
 //         type: Number,
 //         required: false,
+//         min: 1,
+//         max: 255,
 //     },
 //     Country: {
 //         type: String,
 //         required: false,
-//         max: 30,
+//         max: 40,
 //     },
 //     DatabaseDesireNextYear: {
 //         type: String,
@@ -92,18 +96,22 @@ const mongoose = require('mongoose');
 //     YearsCode: {
 //         type: Number,
 //         required: false,
+//         min: 1,
+//         max: 255,
 //     },
 //     YearsCodePro: {
 //         type: Number,
 //         required: false,
+//         min: 1,
+//         max: 255,
 //     },
-// });
+// }, { versionKey: false });
 
 const dataSchema = new mongoose.Schema({
     kontol: {
         type: String,
         required: false,
     }
-});
+}, { versionKey: false });
 
 module.exports = mongoose.model('datas', dataSchema);
