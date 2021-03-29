@@ -3,6 +3,7 @@ const { getPostData } = require('../utils');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const { headers } = require('../headers');
+const crypto = require('crypto');
 require('dotenv').config();
 
 async function createUser(req, res) {
@@ -18,7 +19,7 @@ async function createUser(req, res) {
             res.writeHead(400, { ...headers, 'Content-Type': 'application/json' });
             return res.end(JSON.stringify({ message: "Invalid username!" }));
         }
-        if(!user.password || user.password.length < 8) {
+        if(!user.password || user.password.length < 8 || user.password.length > 255) {
             res.writeHead(400, { ...headers, 'Content-Type': 'application/json' });
             if(user.password) {
                 return res.end(JSON.stringify({ message: "Passwords must be at least 8 characters long" }));
@@ -26,7 +27,8 @@ async function createUser(req, res) {
             return res.end(JSON.stringify({ message: "Invalid username!" }));
         }
         const salt = await bcrypt.genSalt(13);
-        const hashedPass = await bcrypt.hash(user.password, salt);
+        const shaPass = crypto.createHmac('sha256', process.env.SHA_SECRET_KEY).update(user.password).digest('hex');
+        const hashedPass = await bcrypt.hash(shaPass, salt);
         user = { ...user, password: hashedPass };
         const newUser = await Users.create(user);
         res.writeHead(201, { ...headers, 'Content-Type': 'application/json' });
@@ -54,7 +56,8 @@ async function loginUser(req, res) {
             res.end(JSON.stringify({ message: 'User Not Found' }));
             return;
         }
-        const validPass = await bcrypt.compare(parsed.password, user.password)
+        const shaPass = crypto.createHmac('sha256', process.env.SHA_SECRET_KEY).update(parsed.password).digest('hex');
+        const validPass = await bcrypt.compare(shaPass, user.password)
         if(!validPass) {
             res.writeHead(401, { ...headers, 'Content-Type': 'application/json' });
             return res.end(JSON.stringify({ message: 'Not Allowed' }));
