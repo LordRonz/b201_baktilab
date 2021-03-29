@@ -1,14 +1,10 @@
 require('dotenv').config();
 const http = require('http');
 const { MongoClient } = require('mongodb');
-const MongoUrl = 'mongodb://localhost/acme';
 const { getAllData, getData, createData, updateData, deleteData } = require('./controllers/dataController');
 const { createUser, loginUser } = require('./controllers/userController');
-const { client } = require('./database/database');
 const jwt = require('jsonwebtoken');
 const mongoose = require('./database/mongooseutil')
-
-// client.connect();
 
 const server = http.createServer((req, res)=>{
     console.log(`${req.method} ${req.httpVersion} ${req.url}`);

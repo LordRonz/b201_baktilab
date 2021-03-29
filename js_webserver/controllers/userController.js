@@ -32,11 +32,6 @@ async function createUser(req, res) {
         user = { ...user, password: hashedPass };
         const newUser = await Users.create(user);
         res.writeHead(201, { ...headers, 'Content-Type': 'application/json' });
-        // return res.end(JSON.stringify({ 
-        //     id: newUser.ops[0]._id,
-        //     username: newUser.ops[0].username,
-        //     message: "Account successfully created",
-        // }));
         return res.end(JSON.stringify(newUser));
     } catch(error) {
         console.log(error);
@@ -64,14 +59,10 @@ async function loginUser(req, res) {
         }
 
         const token = jwt.sign({ _id: user._id }, process.env.ACCESS_TOKEN_SECRET, { algorithm: 'HS512', expiresIn: 60 * 20 });
-        // const token = jwt.sign({ _id: user._id }, process.env.ACCESS_TOKEN_SECRET);
         res.statusCode = 200;
         res.writeHead(200, { ...headers, 'Content-Type': 'application/json','auth-token': token });
         res.write(JSON.stringify({ message: "Success", token: token }));
         return res.end();
-
-        // res.writeHead(200, { 'Content-Type': 'application/json' });
-        // res.end(JSON.stringify({ message: 'Success' }));
     } catch(error) {
         console.log(error);
         res.writeHead(500, { ...headers, 'Content-Type': 'application/json' });

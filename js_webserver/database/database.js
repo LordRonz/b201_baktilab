@@ -1,3 +1,5 @@
+//NOT USED
+
 const { MongoClient } = require('mongodb');
 
 const MongoUrl = 'mongodb://localhost/test1';
