@@ -27,6 +27,7 @@ Endpoint yang berkaitan dengan data non user. Setiap endpoint membutuhkan token
 * [Get All Data](data/getAll.md) : `GET /api/data`
 * [Get Data by Page](data/getPage.md) : `GET /api/data`
 * [Get Data by ID](data/pk/getId.md) : `GET /api/data/:id`
+* [Create data](data/pk/post.md) : `POST /api/data`
 * [Update data](data/pk/put.md) : `PUT /api/data/:id`
 * [Update data](data/pk/patch.md) : `PATCH /api/data/:id`
 * [Delete data](data/pk/delete.md) : `DELETE /api/data/:id`
