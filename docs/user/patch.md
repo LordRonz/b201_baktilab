@@ -44,8 +44,3 @@ Jika user salah memasukkan password lama
     "message": "Not Allowed"
 }
 ```
-
-## Notes
-
-* If the User does not have a `UserInfo` instance when requested then one will
-  be created for them.
