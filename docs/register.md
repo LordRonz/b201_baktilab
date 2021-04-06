@@ -55,7 +55,7 @@ Digunakan untuk mendaftarkan user baru, password akan di hash menggunakan HMAC-S
 }
 ```
 
-**Kondisi** : Jika user tidak ada di database
+**Kondisi** : Jika username tidak diberikan/kosong
 
 **Code** : `400 BAD REQUEST`
 
@@ -63,6 +63,30 @@ Digunakan untuk mendaftarkan user baru, password akan di hash menggunakan HMAC-S
 
 ```json
 {
-    "message": "User Not Found"
+    "message": "Invalid Username"
+}
+```
+
+**Kondisi** : Jika username berisi karakter selain alphanumeric dan underscore
+
+**Code** : `400 BAD REQUEST`
+
+**Content** :
+
+```json
+{
+    "message": "Username must contain only letters, numbers, and underscores"
+}
+```
+
+**Kondisi** : Jika username yang diberikan sudah ada di DB
+
+**Code** : `400 BAD REQUEST`
+
+**Content** :
+
+```json
+{
+    "message": "Username taken!"
 }
 ```

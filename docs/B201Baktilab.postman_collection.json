@@ -1,0 +1,508 @@
+{
+	"info": {
+		"_postman_id": "94113432-573c-42de-8f80-43ba8c2ea250",
+		"name": "B201Baktilab",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "REGISTER",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDY3ZWNkYzk0NGE5YzJmYmFmYTZhYmUiLCJpYXQiOjE2MTc0MjM2MzQsImV4cCI6MTYxNzQyNDgzNH0.aXDXSl0cLCPCoGlIP5Do1ClUuxKw4ebmj95z9OwrHygrPnDB4wuXFs2Dp_fY1Iql6uu5sk2VtKJEAWveu6iuyg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"ronron\",\n    \"password\": \"lordronz\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://52.168.12.75/api/user/register",
+					"protocol": "https",
+					"host": [
+						"52",
+						"168",
+						"12",
+						"75"
+					],
+					"path": [
+						"api",
+						"user",
+						"register"
+					]
+				},
+				"description": "API Register User"
+			},
+			"response": []
+		},
+		{
+			"name": "LOGIN",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUaMiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDY1ZTU5ODcxYTFmOTk0NDhiMmI3YzYiLCJpYXQiOjE2MTczMzkzNzQsImV4cCI6MTYxNzM0MDU3NH0.uSNPHx49HzbUg5Bcqna_pkTA-8yCzSCwocfrZL9h-CmM75o2RqdzgqXo5YgGxHZMvX3O6KkrnQthRsV6LHO2sg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "auth-token",
+						"value": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDY1ZTU5ODcxYTFmOTk0NDhiMmI3YzYiLCJpYXQiOjE2MTczMzg2NTMsImV4cCI6MTYxNzMzOTg1M30.qFRCs4kx28E0RgYy88HwAVmO1nd2V3GlBAYcSspvsFgJPAMfSyYfyzpC83g2wOpSTfi5IwzKuiSsKodi66U6NA",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"ronron\",\n    \"password\": \"lordronz\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://52.168.12.75/api/user/login",
+					"protocol": "https",
+					"host": [
+						"52",
+						"168",
+						"12",
+						"75"
+					],
+					"path": [
+						"api",
+						"user",
+						"login"
+					]
+				},
+				"description": "API Login User"
+			},
+			"response": []
+		},
+		{
+			"name": "GET ALL DATA",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDY4M2Y1ZDBkODAzMTJkNDMzZGUzMDQiLCJpYXQiOjE2MTc0NDUwNTMsImV4cCI6MTYxNzQ0NjI1M30.UM7Z1Kr2R2McJmiWLFux39zC2JppCjNCvIXThwHGv6QzmHBZPZnueFGpfBumCiv-H8r6TwI-dgTs1aiaoeDawg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"ronron\",\n    \"password\": \"lordronz\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://52.168.12.75/api/data",
+					"protocol": "https",
+					"host": [
+						"52",
+						"168",
+						"12",
+						"75"
+					],
+					"path": [
+						"api",
+						"data"
+					]
+				},
+				"description": "API Get All Data"
+			},
+			"response": []
+		},
+		{
+			"name": "GET DATA FROM PARTICULAR PAGE",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDY4M2Y1ZDBkODAzMTJkNDMzZGUzMDQiLCJpYXQiOjE2MTc0NDUwNTMsImV4cCI6MTYxNzQ0NjI1M30.UM7Z1Kr2R2McJmiWLFux39zC2JppCjNCvIXThwHGv6QzmHBZPZnueFGpfBumCiv-H8r6TwI-dgTs1aiaoeDawg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"ronron\",\n    \"password\": \"lordronz\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://52.168.12.75/api/data/page/69",
+					"protocol": "https",
+					"host": [
+						"52",
+						"168",
+						"12",
+						"75"
+					],
+					"path": [
+						"api",
+						"data",
+						"page",
+						"69"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET DATA BY ID",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDY4M2Y1ZDBkODAzMTJkNDMzZGUzMDQiLCJpYXQiOjE2MTc0NDUwNTMsImV4cCI6MTYxNzQ0NjI1M30.UM7Z1Kr2R2McJmiWLFux39zC2JppCjNCvIXThwHGv6QzmHBZPZnueFGpfBumCiv-H8r6TwI-dgTs1aiaoeDawg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"ronron\",\n    \"password\": \"lordronz\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://52.168.12.75/api/data/6065dd707744ff89004fa9ba",
+					"protocol": "https",
+					"host": [
+						"52",
+						"168",
+						"12",
+						"75"
+					],
+					"path": [
+						"api",
+						"data",
+						"6065dd707744ff89004fa9ba"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CREATE DATA",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDY4M2Y1ZDBkODAzMTJkNDMzZGUzMDQiLCJpYXQiOjE2MTc0NDUwNTMsImV4cCI6MTYxNzQ0NjI1M30.UM7Z1Kr2R2McJmiWLFux39zC2JppCjNCvIXThwHGv6QzmHBZPZnueFGpfBumCiv-H8r6TwI-dgTs1aiaoeDawg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"Age\": 69,\n    \"Age1stCode\": 69,\n    \"Country\": \"Germany\",\n    \"DatabaseDesireNextYear\": \"FoxPro\",\n    \"DatabaseWorkedWith\": \"Elasticsearch;Microsoft SQL Server;Oracle, FoxPro\",\n    \"DevType\": \"Developer, desktop or enterprise applications;Developer, full-stack, FoxPro Developer\",\n    \"Employment\": \"Independent contractor, freelancer, or self-employed, CEO, President\",\n    \"Gender\": \"Man\",\n    \"LanguageDesireNextYear\": \"C#;HTML/CSS;JavaScript;Assembly\",\n    \"LanguageWorkedWith\": \"C#;HTML/CSS;JavaScript;Brainfuck\",\n    \"MiscTechDesireNextYear\": \".NET Core;Tamarin\",\n    \"MiscTechWorkedWith\": \".NET;.NET Core\",\n    \"OpSys\": \"DOS\",\n    \"PlatformWorkedWith\": \"Windows\",\n    \"UndergradMajor\": \"Law Study\",\n    \"WebframeDesireNextYear\": \"ASP.NET Core\",\n    \"WebframeWorkedWith\": \"ASP.NET;ASP.NET Core\",\n    \"YearsCode\": 69,\n    \"YearsCodePro\": 69\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://52.168.12.75/api/data",
+					"protocol": "https",
+					"host": [
+						"52",
+						"168",
+						"12",
+						"75"
+					],
+					"path": [
+						"api",
+						"data"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UPDATE DATA (PUT)",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDY4M2Y1ZDBkODAzMTJkNDMzZGUzMDQiLCJpYXQiOjE2MTc0NDUwNTMsImV4cCI6MTYxNzQ0NjI1M30.UM7Z1Kr2R2McJmiWLFux39zC2JppCjNCvIXThwHGv6QzmHBZPZnueFGpfBumCiv-H8r6TwI-dgTs1aiaoeDawg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"Age\": 69,\n    \"Age1stCode\": 69,\n    \"Country\": \"Germany\",\n    \"DatabaseDesireNextYear\": \"FoxPro\",\n    \"DatabaseWorkedWith\": \"Elasticsearch;Microsoft SQL Server;Oracle, FoxPro\",\n    \"DevType\": \"Developer, desktop or enterprise applications;Developer, full-stack, FoxPro Developer\",\n    \"Employment\": \"Independent contractor, freelancer, or self-employed, CEO, President\",\n    \"Gender\": \"Man\",\n    \"LanguageDesireNextYear\": \"C#;HTML/CSS;JavaScript;Assembly\",\n    \"LanguageWorkedWith\": \"C#;HTML/CSS;JavaScript;Brainfuck\",\n    \"MiscTechDesireNextYear\": \".NET Core;Tamarin\",\n    \"MiscTechWorkedWith\": \".NET;.NET Core\",\n    \"OpSys\": \"DOS\",\n    \"PlatformWorkedWith\": \"Windows\",\n    \"UndergradMajor\": \"Law Study\",\n    \"WebframeDesireNextYear\": \"ASP.NET Core\",\n    \"WebframeWorkedWith\": \"ASP.NET;ASP.NET Core\",\n    \"YearsCode\": 69,\n    \"YearsCodePro\": 69\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://52.168.12.75/api/data/6065dd707744ff89004fa9ba",
+					"protocol": "https",
+					"host": [
+						"52",
+						"168",
+						"12",
+						"75"
+					],
+					"path": [
+						"api",
+						"data",
+						"6065dd707744ff89004fa9ba"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UPDATE DATA (PATCH)",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDY4M2Y1ZDBkODAzMTJkNDMzZGUzMDQiLCJpYXQiOjE2MTc0NDUwNTMsImV4cCI6MTYxNzQ0NjI1M30.UM7Z1Kr2R2McJmiWLFux39zC2JppCjNCvIXThwHGv6QzmHBZPZnueFGpfBumCiv-H8r6TwI-dgTs1aiaoeDawg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"Age\": 69,\n    \"Country\": \"Sunda Empire\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://52.168.12.75/api/data/6065dd707744ff89004fa9ba",
+					"protocol": "https",
+					"host": [
+						"52",
+						"168",
+						"12",
+						"75"
+					],
+					"path": [
+						"api",
+						"data",
+						"6065dd707744ff89004fa9ba"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE DATA",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDY4M2Y1ZDBkODAzMTJkNDMzZGUzMDQiLCJpYXQiOjE2MTc0NDUwNTMsImV4cCI6MTYxNzQ0NjI1M30.UM7Z1Kr2R2McJmiWLFux39zC2JppCjNCvIXThwHGv6QzmHBZPZnueFGpfBumCiv-H8r6TwI-dgTs1aiaoeDawg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"Age\": 69,\n    \"Country\": \"Sunda Empire\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://52.168.12.75/api/data/6065dd707744ff89004fa9ba",
+					"protocol": "https",
+					"host": [
+						"52",
+						"168",
+						"12",
+						"75"
+					],
+					"path": [
+						"api",
+						"data",
+						"6065dd707744ff89004fa9ba"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CHANGE PASSWORD",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDY4M2Y1ZDBkODAzMTJkNDMzZGUzMDQiLCJpYXQiOjE2MTc0NDU3NDEsImV4cCI6MTYxNzQ0Njk0MX0.3DRFM0I2vdfpUFnaJOBYh4hNLYDIaX1jh7aQQ9mRTq5vAr-3MkrFxRuW9eD4ZNK8pVaPdNhmSfxOQ6sp9r8YuQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "auth-token",
+						"value": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDY1ZTU5ODcxYTFmOTk0NDhiMmI3YzYiLCJpYXQiOjE2MTczMzg2NTMsImV4cCI6MTYxNzMzOTg1M30.qFRCs4kx28E0RgYy88HwAVmO1nd2V3GlBAYcSspvsFgJPAMfSyYfyzpC83g2wOpSTfi5IwzKuiSsKodi66U6NA",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"ronron\",\n    \"oldPassword\": \"lordronz\",\n    \"newPassword\": \"znordrol\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://52.168.12.75/api/user",
+					"protocol": "https",
+					"host": [
+						"52",
+						"168",
+						"12",
+						"75"
+					],
+					"path": [
+						"api",
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE USER",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDY4M2Y1ZDBkODAzMTJkNDMzZGUzMDQiLCJpYXQiOjE2MTc0NDU3NDEsImV4cCI6MTYxNzQ0Njk0MX0.3DRFM0I2vdfpUFnaJOBYh4hNLYDIaX1jh7aQQ9mRTq5vAr-3MkrFxRuW9eD4ZNK8pVaPdNhmSfxOQ6sp9r8YuQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "auth-token",
+						"value": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDY1ZTU5ODcxYTFmOTk0NDhiMmI3YzYiLCJpYXQiOjE2MTczMzg2NTMsImV4cCI6MTYxNzMzOTg1M30.qFRCs4kx28E0RgYy88HwAVmO1nd2V3GlBAYcSspvsFgJPAMfSyYfyzpC83g2wOpSTfi5IwzKuiSsKodi66U6NA",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"ronron\",\n    \"password\": \"znordrol\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://52.168.12.75/api/user",
+					"protocol": "https",
+					"host": [
+						"52",
+						"168",
+						"12",
+						"75"
+					],
+					"path": [
+						"api",
+						"user"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
