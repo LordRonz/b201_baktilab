@@ -1,0 +1,24 @@
+{
+    "env": {
+        "commonjs": true,
+        "es2021": true,
+        "node": true
+    },
+    "plugins": [
+        "security"
+    ],
+    "extends": ["eslint:recommended", "plugin:security/recommended", "airbnb"],
+    "parserOptions": {
+        "ecmaVersion": 12
+    },
+    "rules": {
+        "no-console": "off",
+        "indent": ["error", 4],
+        "no-param-reassign": "off",
+        "no-underscore-dangle": "off",
+        "no-proto": "off",
+        "no-plusplus": ["error", { "allowForLoopAfterthoughts": true }],
+        "no-restricted-syntax": "off",
+        "semi": ["error", "always"]
+    }
+}
