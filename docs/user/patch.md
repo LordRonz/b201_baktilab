@@ -36,8 +36,13 @@ Ketika user berhasil memasukkan data dengan benar
     "__v": 0
 }
 ```
+## Error Response
 
-Jika user salah memasukkan password lama
+**Kondisi** : Jika user salah memasukkan password lama
+
+**Code** : `401 UNAUTHORIZED`
+
+**Content** :
 
 ```json
 {
