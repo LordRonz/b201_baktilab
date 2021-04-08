@@ -1,5 +1,3 @@
-"use strict";
-
 const mongoose = require('mongoose');
 
 const dataSchema = new mongoose.Schema({
@@ -21,91 +19,91 @@ const dataSchema = new mongoose.Schema({
         type: String,
         required: false,
         max: 40,
-        default: "",
+        default: '',
     },
     DatabaseDesireNextYear: {
         type: String,
         required: false,
         max: 500,
-        default: "",
+        default: '',
     },
     DatabaseWorkedWith: {
         type: String,
         required: false,
         max: 500,
-        default: "",
+        default: '',
     },
     DevType: {
         type: String,
         required: false,
         max: 500,
-        default: "",
+        default: '',
     },
     Employment: {
         type: String,
         required: false,
         max: 500,
-        default: "",
+        default: '',
     },
     Gender: {
         type: String,
         required: false,
         max: 20,
-        default: "",
+        default: '',
     },
     LanguageDesireNextYear: {
         type: String,
         required: false,
         max: 200,
-        default: "",
+        default: '',
     },
     LanguageWorkedWith: {
         type: String,
         required: false,
         max: 200,
-        default: "",
+        default: '',
     },
     MiscTechDesireNextYear: {
         type: String,
         required: false,
         max: 200,
-        default: "",
+        default: '',
     },
     MiscTechWorkedWith: {
         type: String,
         required: false,
         max: 200,
-        default: "",
+        default: '',
     },
     OpSys: {
         type: String,
         required: false,
         max: 200,
-        default: "",
+        default: '',
     },
     PlatformWorkedWith: {
         type: String,
         required: false,
         max: 200,
-        default: "",
+        default: '',
     },
     UndergradMajor: {
         type: String,
         required: false,
         max: 200,
-        default: "",
+        default: '',
     },
     WebframeDesireNextYear: {
         type: String,
         required: false,
         max: 200,
-        default: "",
+        default: '',
     },
     WebframeWorkedWith: {
         type: String,
         required: false,
         max: 200,
-        default: "",
+        default: '',
     },
     YearsCode: {
         type: Number,
