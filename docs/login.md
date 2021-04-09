@@ -41,7 +41,7 @@ Digunakan untuk mendapat token bagi user yang sudah registrasi
 
 ## Error Response
 
-**Kondisi** : Jika password salah
+**Kondisi** : Jika password yang dimasukkan tidak cocok dengan yang ada di database
 
 **Code** : `401 UNAUTHORIZED`
 
