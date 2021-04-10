@@ -6,6 +6,7 @@ const Users = require('../models/userModel');
 const { getPostData, sanitize, safeParse } = require('../utils');
 const { headers } = require('../headers');
 const { verifyToken } = require('./verifyToken');
+const { passwordStrength } = require('../passwordStrength');
 require('dotenv').config();
 
 const createUser = async (req, res) => {
@@ -46,6 +47,15 @@ const createUser = async (req, res) => {
                 );
             }
             return res.end(JSON.stringify({ message: 'Invalid password!' }));
+        }
+        if (passwordStrength(user.password).id < 2) {
+            res.writeHead(400, {
+                ...headers,
+                'Content-Type': 'application/json',
+            });
+            return res.end(
+                JSON.stringify({ message: 'Password is too weak!' }),
+            );
         }
         if (!user.username.match(/\w+$/)) {
             res.writeHead(400, {
@@ -145,9 +155,7 @@ const changePass = async (req, res) => {
     try {
         const body = await getPostData(req);
         const parsed = sanitize(safeParse(body));
-        const { oldPassword } = parsed;
-        const { newPassword } = parsed;
-        const { username } = parsed;
+        const { oldPassword, newPassword, username } = parsed;
         if (!username || !newPassword || !oldPassword) {
             res.writeHead(400, {
                 ...headers,
@@ -167,6 +175,14 @@ const changePass = async (req, res) => {
                 'Content-Type': 'application/json',
             });
             res.end(JSON.stringify({ message: 'User Not Found' }));
+            return;
+        }
+        if (passwordStrength(newPassword).id < 2) {
+            res.writeHead(400, {
+                ...headers,
+                'Content-Type': 'application/json',
+            });
+            res.end(JSON.stringify({ message: 'Password is too weak!' }));
             return;
         }
         const shaPass = crypto
@@ -205,8 +221,7 @@ const deleteUser = async (req, res) => {
     try {
         const body = await getPostData(req);
         const parsed = sanitize(safeParse(body));
-        const { password } = parsed;
-        const { username } = parsed;
+        const { username, password } = parsed;
         if (!username || !password) {
             res.writeHead(400, {
                 ...headers,
