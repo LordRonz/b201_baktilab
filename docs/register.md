@@ -90,3 +90,15 @@ Digunakan untuk mendaftarkan user baru, password akan di hash menggunakan HMAC-S
     "message": "Username taken!"
 }
 ```
+
+**Kondisi** : Jika password yang diberikan terlalu lemah
+
+**Code** : `400 BAD REQUEST`
+
+**Content** :
+
+```json
+{
+    "message": "Password is too weak!"
+}
+```
