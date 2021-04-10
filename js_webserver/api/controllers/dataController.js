@@ -1,4 +1,4 @@
-const { ObjectId } = require('mongodb');
+const { ObjectId } = require('mongoose').Types;
 const Data = require('../models/dataModel');
 const { getPostData, sanitize, safeParse } = require('../utils');
 const { verifyToken } = require('./verifyToken');

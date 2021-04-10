@@ -1,4 +1,4 @@
-const { ObjectId } = require('mongodb');
+const { ObjectId } = require('mongoose').Types;
 
 const getPostData = (req) => new Promise((resolve, reject) => {
     try {
@@ -47,19 +47,25 @@ const scan = (obj, options = {}) => {
         const nodes = next;
         next = [];
         for (let i = 0; i < nodes.length; ++i) {
-            if (Object.prototype.hasOwnProperty.call(nodes[`${i}`], '__proto__')) { // Avoid calling node.hasOwnProperty directly
+            if (
+                Object.prototype.hasOwnProperty.call(nodes[`${i}`], '__proto__')
+            ) {
+                // Avoid calling node.hasOwnProperty directly
                 if (options.protoAction !== 'remove') {
-                    throw new SyntaxError('Object contains forbidden prototype property');
+                    throw new SyntaxError(
+                        'Object contains forbidden prototype property',
+                    );
                 }
 
                 delete nodes[`${i}`].__proto__;
             }
             if (nodes[`${i}`] instanceof Object) {
                 for (const key in nodes[`${i}`]) {
-                    if (Object.prototype.isPrototypeOf.call(nodes[`${i}`], key)) {
+                    if (
+                        Object.prototype.isPrototypeOf.call(nodes[`${i}`], key)
+                    ) {
                         const value = nodes[`${i}`][`${key}`];
-                        if (value
-                            && typeof value === 'object') {
+                        if (value && typeof value === 'object') {
                             next.push(nodes[`${i}`][`${key}`]);
                         }
                     }
@@ -86,8 +92,7 @@ const parse = (text, ...args) => {
 
     // Ignore null and non-objects
 
-    if (!obj
-        || typeof obj !== 'object') {
+    if (!obj || typeof obj !== 'object') {
         return obj;
     }
 

@@ -20,7 +20,7 @@ Tiap endpoint membutuhkan token
 * [Change Password](user/patch.md) : `PATCH /api/user`
 * [Delete User](user/delete.md) : `DELETE /api/user`
 
-### Account related
+### Data related
 
 Endpoint yang berkaitan dengan data non user. Setiap endpoint membutuhkan token
 
