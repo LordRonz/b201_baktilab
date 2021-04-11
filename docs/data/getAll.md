@@ -12,7 +12,7 @@ Memberikan semua data yang ada. Karena datanya yang banyak response biasanya dat
 
 ## Success Responses
 
-**Condition** : User dapat melihat semua data.
+**Kondisi** : User dapat melihat semua data.
 
 **Code** : `200 OK`
 
@@ -198,3 +198,11 @@ Memberikan semua data yang ada. Karena datanya yang banyak response biasanya dat
     }
 ]
 ```
+
+## Error Response
+
+**Kondisi** : Ke [jwt.md](./auth.md)
+
+**Code** : Ke [jwt.md](./auth.md)
+
+**Content** : Ke [jwt.md](./auth.md)

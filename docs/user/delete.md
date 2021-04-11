@@ -1,6 +1,6 @@
 # Hapus user
 
-Untuk menghapus user, dibutuhkan header Authorization dan memberikan body json berupa username, dan password akun yang akan dihapus
+Untuk menghapus user, dibutuhkan body json berupa username, dan password akun yang akan dihapus
 
 **URL** : `/api/user`
 

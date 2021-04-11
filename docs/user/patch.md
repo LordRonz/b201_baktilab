@@ -1,6 +1,6 @@
 # Ubah password
 
-Untuk mengubah password user, dibutuhkan header login dan memberikan body json berupa username, oldPassword, dan newPassword
+Untuk mengubah password user, dibutuhkan body json berupa username, oldPassword, dan newPassword
 
 **URL** : `/api/user`
 
