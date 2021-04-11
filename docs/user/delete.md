@@ -14,7 +14,7 @@ Untuk menghapus user, dibutuhkan header Authorization dan memberikan body json b
 
 **Code** : `200 OK`
 
-**Data example**
+**Data example** :
 
 ```json
 {
@@ -23,7 +23,7 @@ Untuk menghapus user, dibutuhkan header Authorization dan memberikan body json b
 }
 ```
 
-**Content examples**
+**Content examples** :
 
 Ketika user berhasil memasukkan data dengan benar
 
@@ -62,6 +62,8 @@ Ketika user berhasil memasukkan data dengan benar
 }
 ```
 
+> Atau
+
 **Kondisi** : Jika body tidak berisi username dan password
 
 **Code** : `400 BAD REQUEST`
@@ -73,6 +75,8 @@ Ketika user berhasil memasukkan data dengan benar
     "message": "Provide username and password!"
 }
 ```
+
+> Atau
 
 **Kondisi** : Username tidak ditemukan di database
 

@@ -14,7 +14,7 @@ Untuk mengubah password user, dibutuhkan header login dan memberikan body json b
 
 **Code** : `200 OK`
 
-**Data example**
+**Data example** :
 
 ```json
 {
@@ -24,7 +24,7 @@ Untuk mengubah password user, dibutuhkan header login dan memberikan body json b
 }
 ```
 
-**Content examples**
+**Content examples** :
 
 Ketika user berhasil memasukkan data dengan benar
 
@@ -36,6 +36,7 @@ Ketika user berhasil memasukkan data dengan benar
     "__v": 0
 }
 ```
+
 ## Error Response
 
 **Kondisi** : Jika user salah memasukkan password lama
@@ -47,5 +48,47 @@ Ketika user berhasil memasukkan data dengan benar
 ```json
 {
     "message": "Not Allowed"
+}
+```
+
+> Atau
+
+**Kondisi** : Jika body tidak berisi username, oldPassword dan newPassword
+
+**Code** : `400 BAD REQUEST`
+
+**Content** :
+
+```json
+{
+    "message": "'Provide username, oldPassword, and newPassword!',"
+}
+```
+
+> Atau
+
+**Kondisi** : Jika user tidak ada di database
+
+**Code** : `400 BAD REQUEST`
+
+**Content** :
+
+```json
+{
+    "message": "User Not Found"
+}
+```
+
+> Atau
+
+**Kondisi** : Jika password yang diberikan terlalu lemah
+
+**Code** : `400 BAD REQUEST`
+
+**Content** :
+
+```json
+{
+    "message": "Password is too weak!"
 }
 ```

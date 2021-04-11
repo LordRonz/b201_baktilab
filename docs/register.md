@@ -8,7 +8,7 @@ Digunakan untuk mendaftarkan user baru, password akan di hash menggunakan HMAC-S
 
 **Auth required** : NO
 
-**Data constraints**
+**Data constraints** :
 
 ```json
 {
@@ -17,7 +17,7 @@ Digunakan untuk mendaftarkan user baru, password akan di hash menggunakan HMAC-S
 }
 ```
 
-**Data example**
+**Data example** :
 
 ```json
 {
@@ -30,7 +30,7 @@ Digunakan untuk mendaftarkan user baru, password akan di hash menggunakan HMAC-S
 
 **Code** : `200 OK`
 
-**Content example**
+**Content example** :
 
 ```json
 {
@@ -55,6 +55,8 @@ Digunakan untuk mendaftarkan user baru, password akan di hash menggunakan HMAC-S
 }
 ```
 
+> Atau
+
 **Kondisi** : Jika username tidak diberikan/kosong
 
 **Code** : `400 BAD REQUEST`
@@ -66,6 +68,8 @@ Digunakan untuk mendaftarkan user baru, password akan di hash menggunakan HMAC-S
     "message": "Invalid Username"
 }
 ```
+
+> Atau
 
 **Kondisi** : Jika username berisi karakter selain alphanumeric dan underscore
 
@@ -79,6 +83,8 @@ Digunakan untuk mendaftarkan user baru, password akan di hash menggunakan HMAC-S
 }
 ```
 
+> Atau
+
 **Kondisi** : Jika username yang diberikan sudah ada di DB
 
 **Code** : `400 BAD REQUEST`
@@ -91,6 +97,8 @@ Digunakan untuk mendaftarkan user baru, password akan di hash menggunakan HMAC-S
 }
 ```
 
+> Atau
+
 **Kondisi** : Jika password yang diberikan terlalu lemah
 
 **Code** : `400 BAD REQUEST`
@@ -100,5 +108,19 @@ Digunakan untuk mendaftarkan user baru, password akan di hash menggunakan HMAC-S
 ```json
 {
     "message": "Password is too weak!"
+}
+```
+
+> Atau
+
+**Kondisi** : Jika username yang diberikan melebihi 255 karakter
+
+**Code** : `400 BAD REQUEST`
+
+**Content** :
+
+```json
+{
+    "message": "Username is too long!"
 }
 ```

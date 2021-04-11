@@ -5,7 +5,6 @@ const { ObjectId } = require('mongoose').Types;
 const Users = require('../models/userModel');
 const { getPostData, sanitize, safeParse } = require('../utils');
 const { headers } = require('../headers');
-const { verifyToken } = require('./verifyToken');
 const { passwordStrength } = require('../passwordStrength');
 require('dotenv').config();
 
@@ -150,8 +149,6 @@ const loginUser = async (req, res) => {
 };
 
 const changePass = async (req, res) => {
-    await verifyToken(req, res);
-    if (!req.user) return;
     try {
         const body = await getPostData(req);
         const parsed = sanitize(safeParse(body));
@@ -216,8 +213,6 @@ const changePass = async (req, res) => {
 };
 
 const deleteUser = async (req, res) => {
-    await verifyToken(req, res);
-    if (!req.user) return;
     try {
         const body = await getPostData(req);
         const parsed = sanitize(safeParse(body));

@@ -8,7 +8,7 @@ Digunakan untuk mendapat token bagi user yang sudah registrasi
 
 **Auth required** : NO
 
-**Data constraints**
+**Data constraints** :
 
 ```json
 {
@@ -17,7 +17,7 @@ Digunakan untuk mendapat token bagi user yang sudah registrasi
 }
 ```
 
-**Data example**
+**Data example** :
 
 ```json
 {
@@ -30,7 +30,7 @@ Digunakan untuk mendapat token bagi user yang sudah registrasi
 
 **Code** : `200 OK`
 
-**Content example**
+**Content example** :
 
 ```json
 {
@@ -53,6 +53,8 @@ Digunakan untuk mendapat token bagi user yang sudah registrasi
 }
 ```
 
+> Atau
+
 **Kondisi** : Jika user tidak ada di database
 
 **Code** : `400 BAD REQUEST`
@@ -62,5 +64,19 @@ Digunakan untuk mendapat token bagi user yang sudah registrasi
 ```json
 {
     "message": "User Not Found"
+}
+```
+
+> Atau
+
+**Kondisi** : Jika body tidak berisi username dan password
+
+**Code** : `400 BAD REQUEST`
+
+**Content** :
+
+```json
+{
+    "message": "Provide username and password!"
 }
 ```
