@@ -31,3 +31,7 @@ Endpoint yang berkaitan dengan data non user. Setiap endpoint membutuhkan token
 * [Update data](data/put.md) : `PUT /api/data/:id`
 * [Update data](data/patch.md) : `PATCH /api/data/:id`
 * [Delete data](data/delete.md) : `DELETE /api/data/:id`
+
+### Penggunaan Docker
+
+* [Docker](./docker.md)
