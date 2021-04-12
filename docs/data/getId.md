@@ -47,11 +47,11 @@ Memberikan data sesuai dengan id yang diberikan.
 
 ## Error Response
 
-**Kondisi** : Ke [jwt.md](./auth.md)
+**Kondisi** : Ke [jwt.md](./jwt.md)
 
-**Code** : Ke [jwt.md](./auth.md)
+**Code** : Ke [jwt.md](./jwt.md)
 
-**Content** : Ke [jwt.md](./auth.md)
+**Content** : Ke [jwt.md](./jwt.md)
 
 > Atau
 

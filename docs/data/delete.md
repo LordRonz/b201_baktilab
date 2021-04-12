@@ -58,8 +58,8 @@ Hapus salah satu data dengan id yang diberikan
 
 > Atau
 
-**Kondisi** : Ke [jwt.md](./auth.md)
+**Kondisi** : Ke [jwt.md](./jwt.md)
 
-**Code** : Ke [jwt.md](./auth.md)
+**Code** : Ke [jwt.md](./jwt.md)
 
-**Content** : Ke [jwt.md](./auth.md)
+**Content** : Ke [jwt.md](./jwt.md)

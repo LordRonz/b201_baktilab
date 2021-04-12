@@ -201,8 +201,8 @@ Memberikan semua data yang ada. Karena datanya yang banyak response biasanya dat
 
 ## Error Response
 
-**Kondisi** : Ke [jwt.md](./auth.md)
+**Kondisi** : Ke [jwt.md](./jwt.md)
 
-**Code** : Ke [jwt.md](./auth.md)
+**Code** : Ke [jwt.md](./jwt.md)
 
-**Content** : Ke [jwt.md](./auth.md)
+**Content** : Ke [jwt.md](./jwt.md)

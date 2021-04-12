@@ -53,8 +53,8 @@ Update data dengan id yang diberikan, namun tidak semua field dibutuhkan
 
 ## Error Response
 
-**Kondisi** : Ke [jwt.md](./auth.md)
+**Kondisi** : Ke [jwt.md](./jwt.md)
 
-**Code** : Ke [jwt.md](./auth.md)
+**Code** : Ke [jwt.md](./jwt.md)
 
-**Content** : Ke [jwt.md](./auth.md)
+**Content** : Ke [jwt.md](./jwt.md)
