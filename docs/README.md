@@ -34,4 +34,8 @@ Endpoint yang berkaitan dengan data non user. Setiap endpoint membutuhkan token
 
 ### Penggunaan Docker
 
-* [Docker](./docker.md)
+[Docker](./docker.md)
+
+### Dokumentasi POSTMAN
+
+[Postman](./B201Baktilab.postman_collection.json)

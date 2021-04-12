@@ -18,7 +18,7 @@ Hapus salah satu data dengan id yang diberikan
 
 **Code** : `200 OK`
 
-**Content** : `{}`
+**Content** :
 
 ```json
 {
