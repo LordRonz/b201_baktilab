@@ -15,7 +15,7 @@ Endpoint ini memerlukan token yang valid yang diletakkan pada header dari reques
 
 ### Endpoint user
 
-Tiap endpoint membutuhkan token
+Endpoint-endpoint ini hanya membutuhkan password yang diberikan di request body
 
 * [Change Password](user/patch.md) : `PATCH /api/user`
 * [Delete User](user/delete.md) : `DELETE /api/user`
