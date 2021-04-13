@@ -75,3 +75,17 @@ Memberikan data baru
 **Code** : Ke [jwt.md](./jwt.md)
 
 **Content** : Ke [jwt.md](./jwt.md)
+
+> Atau
+
+**Kondisi** : JSON body yang diberikan tidak valid
+
+**Code** : `400 BAD REQUEST`
+
+**Content** :
+
+```json
+{
+    "message": "Invalid JSON!"
+}
+```

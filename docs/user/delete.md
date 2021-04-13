@@ -89,3 +89,17 @@ Ketika user berhasil memasukkan data dengan benar
     "message": "User Not Found"
 }
 ```
+
+> Atau
+
+**Kondisi** : JSON body yang diberikan tidak valid
+
+**Code** : `400 BAD REQUEST`
+
+**Content** :
+
+```json
+{
+    "message": "Invalid JSON!"
+}
+```

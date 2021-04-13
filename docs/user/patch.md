@@ -92,3 +92,17 @@ Ketika user berhasil memasukkan data dengan benar
     "message": "Password is too weak!"
 }
 ```
+
+> Atau
+
+**Kondisi** : JSON body yang diberikan tidak valid
+
+**Code** : `400 BAD REQUEST`
+
+**Content** :
+
+```json
+{
+    "message": "Invalid JSON!"
+}
+```

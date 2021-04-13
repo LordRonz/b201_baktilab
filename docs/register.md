@@ -124,3 +124,17 @@ Digunakan untuk mendaftarkan user baru, password akan di hash menggunakan HMAC-S
     "message": "Username is too long!"
 }
 ```
+
+> Atau
+
+**Kondisi** : JSON body yang diberikan tidak valid
+
+**Code** : `400 BAD REQUEST`
+
+**Content** :
+
+```json
+{
+    "message": "Invalid JSON!"
+}
+```
