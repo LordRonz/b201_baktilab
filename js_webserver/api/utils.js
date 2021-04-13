@@ -1,4 +1,5 @@
 const { ObjectId } = require('mongoose').Types;
+const { headers } = require('./headers');
 
 const getPostData = (req) => new Promise((resolve, reject) => {
     try {
@@ -126,6 +127,20 @@ const checkId = (id) => {
     }
 };
 
+const isJsonBodyValid = (parsed, res) => {
+    if (!parsed) {
+        res.writeHead(400, {
+            ...headers,
+            'Content-Type': 'application/json',
+        });
+        res.end(
+            JSON.stringify({ message: 'Invalid JSON!' }),
+        );
+        return false;
+    }
+    return true;
+};
+
 module.exports = {
     getPostData,
     getHeader,
@@ -134,4 +149,5 @@ module.exports = {
     scan,
     safeParse,
     checkId,
+    isJsonBodyValid,
 };

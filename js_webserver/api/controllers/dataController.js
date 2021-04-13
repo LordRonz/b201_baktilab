@@ -1,6 +1,8 @@
 const { ObjectId } = require('mongoose').Types;
 const Data = require('../models/dataModel');
-const { getPostData, sanitize, safeParse } = require('../utils');
+const {
+    getPostData, sanitize, safeParse, isJsonBodyValid,
+} = require('../utils');
 const { verifyToken } = require('./verifyToken');
 const { headers } = require('../headers');
 
@@ -52,6 +54,9 @@ const createData = async (req, res) => {
     try {
         const body = await getPostData(req);
         const data = sanitize(safeParse(body));
+        if (!isJsonBodyValid(data, res)) {
+            return;
+        }
         const newData = Data.create(data);
         res.writeHead(201, { ...headers, 'Content-Type': 'application/json' });
         res.end(JSON.stringify(await newData));
@@ -70,6 +75,9 @@ const updateData = async (req, res, id) => {
         const body = getPostData(req);
         const filter = { _id: ObjectId(id) };
         const updateDoc = sanitize(safeParse(await body));
+        if (!isJsonBodyValid(updateDoc, res)) {
+            return;
+        }
         const updData = req.method === 'PATCH'
             ? await Data.update(filter, updateDoc)
             : await Data.replace(filter, updateDoc);

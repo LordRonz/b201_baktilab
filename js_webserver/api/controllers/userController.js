@@ -3,7 +3,9 @@ const jwt = require('jsonwebtoken');
 const crypto = require('crypto');
 const { ObjectId } = require('mongoose').Types;
 const Users = require('../models/userModel');
-const { getPostData, sanitize, safeParse } = require('../utils');
+const {
+    getPostData, sanitize, safeParse, isJsonBodyValid,
+} = require('../utils');
 const { headers } = require('../headers');
 const { passwordStrength } = require('../passwordStrength');
 require('dotenv').config();
@@ -12,21 +14,26 @@ const createUser = async (req, res) => {
     try {
         const body = await getPostData(req);
         let user = sanitize(safeParse(body));
+        if (!isJsonBodyValid(user, res)) {
+            return;
+        }
         if (!user.username || user.username.length === 0) {
             res.writeHead(400, {
                 ...headers,
                 'Content-Type': 'application/json',
             });
-            return res.end(JSON.stringify({ message: 'Invalid username!' }));
+            res.end(JSON.stringify({ message: 'Invalid username!' }));
+            return;
         }
         if (user.username > 255) {
             res.writeHead(400, {
                 ...headers,
                 'Content-Type': 'application/json',
             });
-            return res.end(
+            res.end(
                 JSON.stringify({ message: 'Username is too long!' }),
             );
+            return;
         }
         if (
             !user.password
@@ -38,35 +45,39 @@ const createUser = async (req, res) => {
                 'Content-Type': 'application/json',
             });
             if (user.password) {
-                return res.end(
+                res.end(
                     JSON.stringify({
                         message:
                             'Password must be between 8-255 characters long',
                     }),
                 );
+                return;
             }
-            return res.end(JSON.stringify({ message: 'Invalid password!' }));
+            res.end(JSON.stringify({ message: 'Invalid password!' }));
+            return;
         }
         if (passwordStrength(user.password).id < 2) {
             res.writeHead(400, {
                 ...headers,
                 'Content-Type': 'application/json',
             });
-            return res.end(
+            res.end(
                 JSON.stringify({ message: 'Password is too weak!' }),
             );
+            return;
         }
         if (!user.username.match(/\w+$/)) {
             res.writeHead(400, {
                 ...headers,
                 'Content-Type': 'application/json',
             });
-            return res.end(
+            res.end(
                 JSON.stringify({
                     message:
                         'Username must contain only letters, numbers, and underscores',
                 }),
             );
+            return;
         }
         const userExist = await Users.findUser(user.username);
         if (userExist) {
@@ -74,7 +85,8 @@ const createUser = async (req, res) => {
                 ...headers,
                 'Content-Type': 'application/json',
             });
-            return res.end(JSON.stringify({ message: 'Username Taken!' }));
+            res.end(JSON.stringify({ message: 'Username Taken!' }));
+            return;
         }
         const salt = bcrypt.genSalt(13);
         const shaPass = crypto
@@ -85,11 +97,12 @@ const createUser = async (req, res) => {
         user = { ...user, password: hashedPass };
         const newUser = Users.create(user);
         res.writeHead(201, { ...headers, 'Content-Type': 'application/json' });
-        return res.end(JSON.stringify(await newUser));
+        res.end(JSON.stringify(await newUser));
+        return;
     } catch (error) {
         console.log(error);
         res.writeHead(500, { ...headers, 'Content-Type': 'application/json' });
-        return res.end(JSON.stringify({ message: 'Internal Server Error' }));
+        res.end(JSON.stringify({ message: 'Internal Server Error' }));
     }
 };
 
@@ -97,15 +110,19 @@ const loginUser = async (req, res) => {
     try {
         const body = await getPostData(req);
         const parsed = sanitize(safeParse(body));
+        if (!isJsonBodyValid(parsed, res)) {
+            return;
+        }
         const { username } = parsed;
         if (!username || !parsed.password) {
             res.writeHead(400, {
                 ...headers,
                 'Content-Type': 'application/json',
             });
-            return res.end(
+            res.end(
                 JSON.stringify({ message: 'Provide a username and password!' }),
             );
+            return;
         }
         const user = await Users.findUser(username);
         if (!user) {
@@ -113,7 +130,8 @@ const loginUser = async (req, res) => {
                 ...headers,
                 'Content-Type': 'application/json',
             });
-            return res.end(JSON.stringify({ message: 'User Not Found' }));
+            res.end(JSON.stringify({ message: 'User Not Found' }));
+            return;
         }
         const shaPass = crypto
             .createHmac('sha256', process.env.SHA_SECRET_KEY)
@@ -125,7 +143,8 @@ const loginUser = async (req, res) => {
                 ...headers,
                 'Content-Type': 'application/json',
             });
-            return res.end(JSON.stringify({ message: 'Not Allowed' }));
+            res.end(JSON.stringify({ message: 'Not Allowed' }));
+            return;
         }
 
         const token = jwt.sign(
@@ -140,11 +159,11 @@ const loginUser = async (req, res) => {
             Authorization: `Bearer ${token}`,
         });
         res.write(JSON.stringify({ message: 'Success', token }));
-        return res.end();
+        res.end();
     } catch (error) {
         console.log(error);
         res.writeHead(500, { ...headers, 'Content-Type': 'application/json' });
-        return res.end(JSON.stringify({ message: 'Internal Server Error' }));
+        res.end(JSON.stringify({ message: 'Internal Server Error' }));
     }
 };
 
@@ -152,6 +171,9 @@ const changePass = async (req, res) => {
     try {
         const body = await getPostData(req);
         const parsed = sanitize(safeParse(body));
+        if (!isJsonBodyValid(parsed, res)) {
+            return;
+        }
         const { oldPassword, newPassword, username } = parsed;
         if (!username || !newPassword || !oldPassword) {
             res.writeHead(400, {
@@ -216,6 +238,9 @@ const deleteUser = async (req, res) => {
     try {
         const body = await getPostData(req);
         const parsed = sanitize(safeParse(body));
+        if (!isJsonBodyValid(parsed, res)) {
+            return;
+        }
         const { username, password } = parsed;
         if (!username || !password) {
             res.writeHead(400, {
