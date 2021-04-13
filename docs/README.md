@@ -1,6 +1,8 @@
 # Dokumentasi REST API
 
-API dibuat menggunakan NodeJS [https server](https://nodejs.org/api/https.html). Hanya menerima request body berupa [JSON](https://www.json.org/json-en.html), dan merespon dengan JSON.
+API dibuat menggunakan NodeJS [https server](https://nodejs.org/api/https.html). Hanya menerima request body berupa [JSON](https://www.json.org/json-en.html), dan merespon dengan JSON. 
+
+**IP**: `52.168.12.75`
 
 ## Endpoint terbuka
 
