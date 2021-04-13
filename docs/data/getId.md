@@ -1,4 +1,4 @@
-# Show All Data
+# Show Particular data
 
 Memberikan data sesuai dengan id yang diberikan.
 

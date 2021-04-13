@@ -1,4 +1,4 @@
-# Delete User's Account
+# Delete Data
 
 Hapus salah satu data dengan id yang diberikan
 

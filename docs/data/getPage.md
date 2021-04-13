@@ -1,4 +1,4 @@
-# Show All Data
+# Show data by page
 
 Memberikan data sesuai dengan halaman yang diberikan. Per halaman terdapat 20 data.
 
