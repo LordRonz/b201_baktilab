@@ -98,9 +98,9 @@ const server = https.createServer(options, (req, res) => {
 
 const PORT = process.env.PORT || 5000;
 
-server.listen(PORT, (err) => {
-    if (err) {
-        console.log(err);
+server.listen(PORT, (e) => {
+    if (e) {
+        console.log(e);
     }
     console.log(`server running on port ${PORT}`);
     console.log(`PID: ${process.pid}`);
@@ -108,8 +108,8 @@ server.listen(PORT, (err) => {
 
 const handleExit = (signal) => {
     console.log(`Received ${signal}. Close my server properly.`);
-    server.close((err) => {
-        if (err) console.log(err);
+    server.close((e) => {
+        if (e) console.log(e);
         process.exit(0);
     });
 };
